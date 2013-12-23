@@ -9,7 +9,7 @@ var config = {
       name: 'misteraudio'
     },
     port: 3000,
-    db: 'mysql://localhost/misteraudio-development'
+    db: 'mysql://root@localhost/misteraudio_dev'
   },
 
   test: {
@@ -18,7 +18,7 @@ var config = {
       name: 'misteraudio'
     },
     port: 3000,
-    db: 'mysql://localhost/misteraudio-test'
+    db: 'mysql://root@localhost/misteraudio_test'
   },
 
   production: {
@@ -27,7 +27,7 @@ var config = {
       name: 'misteraudio'
     },
     port: 3000,
-    db: 'mysql://localhost/misteraudio-production'
+    db: 'mysql://root@localhost/misteraudio_prod'
   }
 };
 
