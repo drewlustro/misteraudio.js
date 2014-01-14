@@ -1,34 +1,34 @@
 var path = require('path'),
-    rootPath = path.normalize(__dirname + '/..'),
-    env = process.env.NODE_ENV || 'development';
+        rootPath = path.normalize(__dirname + '/..'),
+        env = process.env.NODE_ENV || 'development';
 
 var config = {
-  development: {
-    root: rootPath,
-    app: {
-      name: 'misteraudio'
+    development: {
+        root: rootPath,
+        app: {
+            name: 'misteraudio'
+        },
+        port: 3000,
+        db: 'mysql://root@localhost/misteraudio_dev'
     },
-    port: 3000,
-    db: 'mysql://root@localhost/misteraudio_dev'
-  },
 
-  test: {
-    root: rootPath,
-    app: {
-      name: 'misteraudio'
+    test: {
+        root: rootPath,
+        app: {
+            name: 'misteraudio'
+        },
+        port: 3000,
+        db: 'mysql://root@localhost/misteraudio_test'
     },
-    port: 3000,
-    db: 'mysql://root@localhost/misteraudio_test'
-  },
 
-  production: {
-    root: rootPath,
-    app: {
-      name: 'misteraudio'
-    },
-    port: 3000,
-    db: 'mysql://root@localhost/misteraudio_prod'
-  }
+    production: {
+        root: rootPath,
+        app: {
+            name: 'misteraudio'
+        },
+        port: 3000,
+        db: 'mysql://root@localhost/misteraudio_prod'
+    }
 };
 
 module.exports = config[env];

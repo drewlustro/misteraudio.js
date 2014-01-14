@@ -110,6 +110,14 @@ module.exports = function (grunt) {
                 cwd: '<%= yeoman.app %>/public/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            images: {
+                expand: true,
+                dot: true,
+                cwd: '<%= yeoman.app %>/public/img',
+                src: '{,*/}*.{png,jpg,jpeg,gif,webp,svg,ico}',
+                dest: '.tmp/img/',
+
             }
         },
         open: {
@@ -134,7 +142,8 @@ module.exports = function (grunt) {
             server: [
                 'compass',
                 //'coffee:dist',
-                'copy:styles'
+                'copy:styles',
+                'copy:images'
             ],
             test: [
                 //'coffee',

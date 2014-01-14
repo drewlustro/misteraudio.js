@@ -10,3 +10,19 @@ exports.index = function(req, res){
     });
   });
 };
+
+exports.restartAudioServices = function(req, res){
+  res.json({ action: 'restartAudioServices'});
+};
+
+exports.pause = function(req, res){
+  res.json({ action: 'pause'});
+};
+
+exports.resume = function(req, res){
+  res.json({ action: 'resume'});
+};
+
+exports.stop = function(req, res){
+  res.json({ action: 'stop'});
+};
