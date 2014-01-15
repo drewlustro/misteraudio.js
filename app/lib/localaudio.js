@@ -2,23 +2,26 @@ var config = require('../../config/config');
 var Dovetail = require('./dovetail');
 var komponist = require('komponist');
 
-var localAudioConnection = undefined;
+var connection = undefined;
 
+// Create 'singleton' audio connection to MPD
+// require() calls are cached, so this happens naturally as
+// long as connection is scoped here.
 var getLocalAudioConnection = function (readyCallback) {
-    if (localAudioConnection && localAudioConnection.client) {
-        readyCallback(undefined, localAudioConnection);
+    if (connection && connection.client) {
+        readyCallback(undefined, connection);
     }
 
-    localAudioConnection = new LocalAudio();
+    connection = new LocalAudio();
 
     var client = komponist.createConnection(6600, 'localhost', function (err) {
         console.log('LocalAudio.connect()');
 
         if (!err) {
-            localAudioConnection.client = client;
+            connection.client = client;
         }
 
-        readyCallback(err, localAudioConnection);
+        readyCallback(err, connection);
     });
 } 
 
@@ -26,9 +29,6 @@ var getLocalAudioConnection = function (readyCallback) {
 var LocalAudio = function () {
     this.client = undefined;
     this.path = config.localAudio;
-    // create connection to MPD
-    
-    console.log("Using config.localAudio = ", config.localAudio);
 };
 
 LocalAudio.prototype = new Dovetail();
@@ -73,7 +73,5 @@ LocalAudio.prototype.currentSong = function (callback) {
 LocalAudio.prototype.status = function () {
     return this.terminalCommand(LocalAudio.commands.status);
 }
-
-
 
 module.exports.getLocalAudioConnection = getLocalAudioConnection;
