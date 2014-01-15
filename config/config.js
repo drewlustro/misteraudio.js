@@ -1,5 +1,6 @@
 var path = require('path'),
         rootPath = path.normalize(__dirname + '/..'),
+        localAudioPath = path.normalize(__dirname + '/../localaudio'),
         env = process.env.NODE_ENV || 'development';
 
 var config = {
@@ -9,7 +10,9 @@ var config = {
             name: 'misteraudio'
         },
         port: 3000,
-        db: 'mysql://root@localhost/misteraudio_dev'
+        db: 'mysql://root@localhost/misteraudio_dev',
+        localAudio: localAudioPath
+
     },
 
     test: {
@@ -18,7 +21,8 @@ var config = {
             name: 'misteraudio'
         },
         port: 3000,
-        db: 'mysql://root@localhost/misteraudio_test'
+        db: 'mysql://root@localhost/misteraudio_test',
+        localAudio: localAudioPath
     },
 
     production: {
@@ -27,7 +31,8 @@ var config = {
             name: 'misteraudio'
         },
         port: 3000,
-        db: 'mysql://root@localhost/misteraudio_prod'
+        db: 'mysql://root@localhost/misteraudio_prod',
+        localAudio: localAudioPath
     }
 };
 

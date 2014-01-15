@@ -67,10 +67,16 @@ module.exports = function (grunt) {
             options: {
                 port: 3000,
                 // change this to '0.0.0.0' to access the server from outside
-                hostname: '127.0.0.1'
+                hostname: '127.0.0.1',
+
             },
             livereload: {
                 options: {
+                    open: true,
+                    base: [
+                        '.tmp',
+                        '<%= yeoman.app %>'
+                    ],
                     middleware: function (connect) {
                         return [
                             lrSnippet,
@@ -179,7 +185,7 @@ module.exports = function (grunt) {
         }, 500);
     });
 
-    grunt.registerTask('server', [
+    grunt.registerTask('serve', [
         'concurrent:server',
         'autoprefixer',
         'develop',

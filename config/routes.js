@@ -5,8 +5,9 @@ module.exports = function(app){
 	app.get('/', home.index);
 
     app.get('/pause', home.pause);
-    app.get('/resume', home.resume);
+    app.get('/play', home.play);
     app.get('/stop', home.stop);
+    app.get('/currentSong', home.currentSong);    
 
     app.get('/restart-audio', home.restartAudioServices);
 

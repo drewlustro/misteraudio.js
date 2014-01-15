@@ -4,10 +4,18 @@ block content
   h1 MisterAudio.js
   ul
     li
-      a(href="/restart-audio") Restart Audio Services
+      a.js-cmd(href="/restart-audio") Restart Audio Services
     li
-      a(href="/resume") Resume
+      a.js-cmd(href="/play") Play
     li
-      a(href="/pause") Pause
+      a.js-cmd(href="/pause") Pause
     li
-      a(href="/stop") Stop
+      a.js-cmd(href="/stop") Stop
+    li
+      a.js-cmd(href="/currentSong") Current Song
+  div
+    strong Action &nbsp;
+    span#action not set
+    br
+    strong Value &nbsp;
+    span#value not set
